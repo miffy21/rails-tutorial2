@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_create :create_activation_digest
@@ -52,6 +53,12 @@ end
   def create_reset_digest
     self.reset_token = User.new_token
     update_columns(reset_digest:  FILL_IN, reset_sent_at: FILL_IN)
+  end
+
+  # 試作feedの定義
+  # 完全な実装は次章の「ユーザーをフォローする」を参照
+  def feed
+    Micropost.where("user_id = ?", id)
   end
 
   # パスワード再設定のメールを送信する

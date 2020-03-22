@@ -7,6 +7,7 @@ ruby '2.5.7'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'jquery-rails'
 gem 'image_processing'
+gem 'carrierwave'
 gem 'mini_magick'
 gem 'active_storage_validations'
 gem 'bcrypt'
@@ -46,4 +47,5 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog'
 end
