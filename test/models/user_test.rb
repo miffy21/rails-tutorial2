@@ -87,4 +87,3 @@ class UserTest < ActiveSupport::TestCase
     assert_not michael.following?(archer)
   end
 end
-end
