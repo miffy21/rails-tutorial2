@@ -21,6 +21,7 @@ gem 'turbolinks'
 gem 'jbuilder'
 gem 'bootsnap'
 gem 'coffee-rails'
+gem 'ransack'
 
 group :development, :test do
   gem 'sqlite3'
