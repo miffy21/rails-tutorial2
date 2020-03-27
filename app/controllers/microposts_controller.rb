@@ -8,7 +8,8 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"
       redirect_to root_url
     else
-      @feed_items = []
+      @q = Micropost.none.ransack
+      @feed_items = current_user.feed.paginate(page: params[:page])
       render 'static_pages/home'
     end
   end
@@ -24,7 +25,6 @@ class MicropostsController < ApplicationController
     def micropost_params
       params.require(:micropost).permit(:content, :picture)
     end
-
 
     def correct_user
       @micropost = current_user.microposts.find_by(id: params[:id])
