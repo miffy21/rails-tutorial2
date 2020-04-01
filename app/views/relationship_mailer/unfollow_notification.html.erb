@@ -1,0 +1,11 @@
+<h1>Sample App</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+  <%= @follower.name %> unfollowed you.
+  Click on the link below to check your followers:
+</p>
+
+<%= link_to "Your follower list",
+      followers_user_url(@user) %>
